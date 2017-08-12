@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:camel="http://camel.apache.org/schema/spring"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd        http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
+    <camelContext id="camelContext-cf5e512a-e1a9-482b-9821-037eb8edcc7f"
+        trace="false" xmlns="http://camel.apache.org/schema/spring">
+        <route id="customer">
+            <from id="_from1" uri="timer:timerName?repeatCount=1"/>
+            <to id="_to1" uri="sql:select * from customerdemo?dataSource=dataSource"/>
+            <log id="_log1" message="${body}"/>
+        </route>
+    </camelContext>
+</beans>
